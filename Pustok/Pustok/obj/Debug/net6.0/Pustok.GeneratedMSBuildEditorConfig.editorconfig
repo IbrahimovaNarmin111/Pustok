@@ -9,25 +9,25 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Pustok
 build_property.RootNamespace = Pustok
-build_property.ProjectDir = C:\Users\I novbe\Desktop\Backend\Pustok\Pustok\
+build_property.ProjectDir = C:\Users\I novbe\Desktop\Pustok\Pustok\Pustok\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\I novbe\Desktop\Backend\Pustok\Pustok
+build_property.MSBuildProjectDirectory = C:\Users\I novbe\Desktop\Pustok\Pustok\Pustok
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/I novbe/Desktop/Backend/Pustok/Pustok/Views/Home/Index.cshtml]
+[C:/Users/I novbe/Desktop/Pustok/Pustok/Pustok/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/I novbe/Desktop/Backend/Pustok/Pustok/Views/Shared/_Layout.cshtml]
+[C:/Users/I novbe/Desktop/Pustok/Pustok/Pustok/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/I novbe/Desktop/Backend/Pustok/Pustok/Views/_ViewImports.cshtml]
+[C:/Users/I novbe/Desktop/Pustok/Pustok/Pustok/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/I novbe/Desktop/Backend/Pustok/Pustok/Views/_ViewStart.cshtml]
+[C:/Users/I novbe/Desktop/Pustok/Pustok/Pustok/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

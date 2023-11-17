@@ -8,5 +8,6 @@
         public string Title2 { get; set; }
         public string Description { get; set; }
         public int Order { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }
