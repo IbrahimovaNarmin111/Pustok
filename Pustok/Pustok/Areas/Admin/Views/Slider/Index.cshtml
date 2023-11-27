@@ -1,0 +1,74 @@
+﻿@using Pustok.Models;
+@model List< Slider>
+@{
+    int count = 0;
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Sliders</h4>
+                <a class="btn btn-primary rounded-pill" asp-controller="Slider" asp-action="Create">Create</a>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    No
+                                </th>
+                                <th>
+                                   Title 1
+                                </th>
+                                <th>
+                                    Title 2
+                                </th>
+                                <th>
+                                Order
+                                </th>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Settings
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+
+                                <tr>
+
+                                    <td>
+                                        @count
+                                    </td>
+                                    <td>
+                                        @item.Title1
+                                    </td>
+                                    <td>
+                                        @item.Title2
+                                    </td>
+                                    <td>
+                                        @item.Order
+
+                                    </td>
+                                    <td>
+                                        <img style="width:160px;height:150px"src="~/uploads/slider/@item.Image" alt="">
+
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-success rounded-pill" asp-controller="Slider" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                        <a class="btn btn-danger rounded-pill" asp-controller="Slider" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

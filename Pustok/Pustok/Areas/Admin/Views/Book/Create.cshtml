@@ -1,0 +1,61 @@
+﻿@using Pustok.Areas.Admin.ViewModels.Book;
+@using Pustok.Models;
+@model CreateBookVM
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Basic form elements</h4>
+                <p class="card-description">
+
+                </p>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+
+                        <label asp-for="Name">Name</label>
+                        <input class="form-control" asp-for="Name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Page">Page</label>
+                        <input class="form-control" asp-for="Page" placeholder="Page">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="CostPrice">CostPrice</label>
+                        <input class="form-control" asp-for="CostPrice" placeholder="CostPrice">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SalePrice">SalePrice</label>
+                        <input class="form-control" asp-for="SalePrice" placeholder="SalePrice">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Discount">Discount</label>
+                        <input class="form-control" asp-for="Discount" placeholder="Discount">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description">Description</label>
+                        <input class="form-control" asp-for="Description" placeholder="Description">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AuthorId">Author</label>
+                        
+                        <select class="form-control"asp-for="AuthorId" asp-items="new SelectList(Model.Authors,nameof(Author.Id),nameof(Author.FullName))" placeholder="Authors">
+                        <option selected value="0" disabled>Choose Author</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId">Category</label>
+
+                        <select class="form-control" asp-for="CategoryId" asp-items="new SelectList(Model.Categories,nameof(Category.Id),nameof(Category.Name))" placeholder="Categories">
+                        <option selected value="0" disabled>Choose Category</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-light">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

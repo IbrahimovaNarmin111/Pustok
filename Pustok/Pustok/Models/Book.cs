@@ -14,8 +14,8 @@
         public Author Author { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public List<BookImage> Images { get; set; }
-        public List<BookTag> Tags { get; set; }
+        public List<BookImage> BookImages { get; set; }
+        public List<BookTag> BookTags { get; set; }
         
     }
 }

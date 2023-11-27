@@ -1,0 +1,39 @@
+﻿@using Pustok.Models;
+@model Slider
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Basic form elements</h4>
+                <p class="card-description">
+
+                </p>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+
+                        <label asp-for="Title1">Title1</label>
+                        <input class="form-control" asp-for="Title1" placeholder="Title1">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title2">Title2</label>
+                        <input class="form-control" asp-for="Title2" placeholder="Title2">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="ImageFile">Image</label>
+                        <input class="form-control" asp-for="ImageFile" placeholder="ImageFile">
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description">Description</label>
+                        <input class="form-control" asp-for="Description" placeholder="Description">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-light">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
