@@ -1,6 +1,7 @@
 ﻿using Pustok.Models;
+using System.ComponentModel.DataAnnotations;
 
-namespace Pustok.Areas.Admin.ViewModels.Book
+namespace Pustok.Areas.Admin.ViewModels
 {
     public class CreateBookVM
     {
@@ -15,9 +16,17 @@ namespace Pustok.Areas.Admin.ViewModels.Book
         public int AuthorId { get; set; }
         
         public int CategoryId { get; set; }
-
+        public List<int> TagIds { get; set; }
         public List<Author>? Authors { get; set; }
         public List<Category>?Categories { get; set; }
+        public List<Tag>? Tags { get; set; }
+        [Required]
+        public IFormFile MainPhoto { get; set; }
+        [Required]
+        public IFormFile HoverPhoto { get;set; }
+        public List<IFormFile>? Photos { get; set; } 
+        
+
 
 
         

@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Pustok",
+    "\\Pustok\\Areas",
+    "\\Pustok\\Areas\\Admin",
+    "\\Pustok\\Areas\\Admin\\Controllers",
+    "\\Pustok\\Areas\\Admin\\ViewModels",
+    "\\Pustok\\Areas\\Admin\\ViewModels\\Book",
+    "\\Pustok\\Areas\\Admin\\Views",
+    "\\Pustok\\Areas\\Admin\\Views\\Book",
+    "\\Pustok\\Areas\\Admin\\Views\\Slider",
+    "\\Pustok\\Models"
+  ],
+  "SelectedNode": "\\Pustok\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+  "PreviewInSolutionExplorer": false
+}

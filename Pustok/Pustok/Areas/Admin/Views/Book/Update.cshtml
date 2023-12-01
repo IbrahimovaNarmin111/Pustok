@@ -1,5 +1,4 @@
-﻿@using Pustok.Areas.Admin.ViewModels.Book;
-@using Pustok.Models;
+﻿
 @model UpdateBookVM
 <div class="row">
     <div class="col-12 grid-margin stretch-card">
@@ -41,16 +40,48 @@
                         <label asp-for="AuthorId">Author</label>
 
                         <select class="form-control" asp-for="AuthorId" asp-items="new SelectList(Model.Authors,nameof(Author.Id),nameof(Author.FullName))" placeholder="Authors">
-                        <option selected value="0" disabled>Choose Author</option>
+                            <option selected value="0" disabled>Choose Author</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label asp-for="CategoryId">Category</label>
 
                         <select class="form-control" asp-for="CategoryId" asp-items="new SelectList(Model.Categories,nameof(Category.Id),nameof(Category.Name))" placeholder="Categories">
-                        <option selected value="0" disabled>Choose Category</option>
+                            <option selected value="0" disabled>Choose Category</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label asp-for="TagIds">Tag</label>
+                        <select asp-for="TagIds" asp-items="new SelectList(Model.Tags,nameof(Tag.Id),nameof(Tag.Name))" placeholder="Tags" class="form-control">
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <img src="~/uploads/product/@Model.BookImagesVm.FirstOrDefault(x=>x.IsPrimary==true)?.Image" style="width:160px;height:160px" />
+                        <label asp-for="MainPhoto">MainPhoto</label>
+                        <input class="form-control" asp-for="MainPhoto" placeholder="MainPhoto">
+                    </div>
+                    <div class="form-group">
+                        <img src="~/uploads/product/@Model.BookImagesVm.FirstOrDefault(x=>x.IsPrimary==false)?.Image" style="width:160px;height:160px" />
+                        <label asp-for="HoverPhoto">HoverPhoto</label>
+                        <input class="form-control" asp-for="HoverPhoto" placeholder="HoverPhoto">
+                    </div>
+                    <div class="row">
+                        @foreach (var item in Model.BookImagesVm.Where(x => x.IsPrimary == null).ToList())
+                        {
+
+                            <div class="col-2 position-relative">
+                                <img style="width:100%;height:150px" src="~/uploads/product/@item.Image" />
+                                <input type="hidden" value="@item.Id" name="ImageIds" />
+                                <button type="button" class="btn btn-danger position-absolute custom-delete" style="right:10px">X</button>
+                            </div>
+                        }
+                        <label asp-for="Photos" class="form-label">Additional Photos</label>
+                        <input class="form-control" asp-for="Photos">
+                        <span asp-validation-for="Photos" style="color:red"></span>
+
+                    </div>
+
 
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <a asp-action="Index" class="btn btn-light">Go Back</a>

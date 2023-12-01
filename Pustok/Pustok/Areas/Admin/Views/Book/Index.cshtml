@@ -43,38 +43,39 @@
                             {
                                 count++;
 
-                                <tr>
+                            <tr>
 
-                                    <td>
-                                        @count
-                                    </td>
-                                    <td>
-                                        <img src="~/assets/image/products/@book.BookImages.FirstOrDefault(i=>i.IsPrimary==true)?.Image" alt="">
-                                    </td>
-                                    <td>
-                                        @book.Name
-                                    </td>
-                                    <td>
-                                        @book.Author.FullName
+                                <td>
+                                    @count
+                                </td>
+                                <td>
+                                    <img src="~/uploads/product/@book.BookImages.FirstOrDefault(i=>i.IsPrimary==true)?.Image" alt="">
+                                </td>
+                                <td>
+                                    @book.Name
+                                </td>
+                                <td>
+                                    @book.Author.FullName
 
-                                    </td>
-                                    <td>
-                                        @book.Category.Name
+                                </td>
+                                <td>
+                                    @book.Category.Name
 
-                                    </td>
-                                    <td>
-                                        @foreach(var item in book.BookTags)
+                                </td>
+                                <td>
+                                    @foreach(var item in book.BookTags)
                                         {
-                                            @item.Tag.Name
+                                         @item.Tag.Name
                                         }
 
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-success rounded-pill" asp-controller="Book" asp-action="Update" asp-route-id="@book.Id">Update</a>
-                                        <a class="btn btn-danger rounded-pill" asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id">Delete</a>
-                                    </td>
+                                </td>
+                                
+                                <td>
+                                    <a class="btn btn-success rounded-pill" asp-controller="Book" asp-action="Update" asp-route-id="@book.Id">Update</a>
+                                    <a class="btn btn-danger rounded-pill" asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id">Delete</a>
+                                </td>
 
-                                </tr>
+                            </tr>
                             }
                         </tbody>
                     </table>

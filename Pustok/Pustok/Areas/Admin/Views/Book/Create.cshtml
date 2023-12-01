@@ -1,4 +1,4 @@
-﻿@using Pustok.Areas.Admin.ViewModels.Book;
+﻿@using Pustok.Areas.Admin.ViewModels;
 @using Pustok.Models;
 @model CreateBookVM
 <div class="row">
@@ -39,17 +39,41 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="AuthorId">Author</label>
-                        
-                        <select class="form-control"asp-for="AuthorId" asp-items="new SelectList(Model.Authors,nameof(Author.Id),nameof(Author.FullName))" placeholder="Authors">
-                        <option selected value="0" disabled>Choose Author</option>
+
+                        <select class="form-control" asp-for="AuthorId" asp-items="new SelectList(Model.Authors,nameof(Author.Id),nameof(Author.FullName))" placeholder="Authors">
+                            <option selected value="0" disabled>Choose Author</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label asp-for="CategoryId">Category</label>
 
                         <select class="form-control" asp-for="CategoryId" asp-items="new SelectList(Model.Categories,nameof(Category.Id),nameof(Category.Name))" placeholder="Categories">
-                        <option selected value="0" disabled>Choose Category</option>
+                            <option selected value="0" disabled>Choose Category</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TagIds">Tag</label>
+                        <select asp-for="TagIds" asp-items="new SelectList(Model.Tags,nameof(Tag.Id),nameof(Tag.Name))" placeholder="Tags" class="form-control">
+                        </select>
+                       
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MainPhoto">MainPhoto</label>
+                        <input asp-for="MainPhoto" placeholder="MainPhoto"  class="form-control">
+                        </input>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HoverPhoto">HoverPhoto</label>
+                        <input asp-for="HoverPhoto"  placeholder="HoverPhoto" class="form-control">
+                        </input>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Photos">Photos</label>
+                        <input asp-for="Photos"  placeholder="Photos" class="form-control">
+                        </input>
+
                     </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
