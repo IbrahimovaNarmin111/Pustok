@@ -18,6 +18,7 @@ namespace Pustok.DAL
         public DbSet<Book> Books { get; set; }
         public DbSet<BookImage> BookImages { get; set; }    
         public DbSet<BookTag> BookTags { get; set; }
+        public DbSet<Setting> Settings { get; set; }
         
     }
 }

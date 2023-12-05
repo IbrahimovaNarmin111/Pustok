@@ -1,0 +1,26 @@
+﻿@using Pustok.Models;
+@model List<Book>
+@foreach (var item in Model)
+{
+    <div class="single-slide">
+        <div class="product-card card-style-list">
+            <div class="card-image">
+                <img src="~/uploads//product/@item.BookImages.FirstOrDefault(x=>x.IsPrimary==true)?.Image" alt="">
+            </div>
+            <div class="product-card--body">
+                <div class="product-header">
+                    <a href="#" class="author">
+                        @item.Author.FullName
+
+                    </a>
+                    <h3><a href="product-details.html">@item.Description</a></h3>
+                </div>
+                <div class="price-block">
+                    <span class="price">£@item.CostPrice</span>
+                    <del class="price-old">£@item.SalePrice</del>
+                    <span class="price-discount">@item.Discount</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
