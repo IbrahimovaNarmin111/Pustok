@@ -16,6 +16,7 @@
         public Category Category { get; set; }
         public List<BookImage> BookImages { get; set; }
         public List<BookTag> BookTags { get; set; }
+        public List<BasketItem> BasketItems { get; set; }
         
     }
 }

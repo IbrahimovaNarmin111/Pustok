@@ -2,6 +2,7 @@
 @inject LayoutService layout
 @{
     Dictionary<string, string> setting = await layout.GetSetting();
+    List<BookItemVM> bookItems=await layout.GetBooks();
 }
 <!DOCTYPE html>
 <html lang="zxx">
@@ -140,8 +141,27 @@
                                             <li><a href="checkout.html">Checkout</a></li>
                                             <li><a href="compare.html">Compare</a></li>
                                             <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="login-register.html">Login Register</a></li>
-                                            <li><a href="my-account.html">My Account</a></li>
+                                            @if(User.Identity.IsAuthenticated)
+                                            {
+                                                <li>
+                                                    <a href="my-account.html">@User.Identity.Name</a>
+                                                    </li>
+                                                <li>
+                                                    <a asp-action="LogOut" asp-controller="Account">LogOut</a>
+                                                </li>
+
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a asp-action="Login" asp-controller="Account" asp-route-ReturnUrl="@Context.Request.Path">Login</a>
+                                                    </li>
+                                                <li>
+                                                    <a asp-action="Register" asp-controller="Account">Register</a>
+                                                </li>
+                                                
+                                            }
+                                           
                                             <li><a href="order-complete.html">Order Complete</a></li>
                                             <li><a href="faq.html">Faq</a></li>
                                             <li><a href="contact-2.html">contact 02</a></li>
@@ -327,51 +347,32 @@
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
                                     <div class="login-block">
-                                        <a href="login-register.html" class="font-weight-bold">Login</a> <br>
-                                        <span>or</span><a href="login-register.html">Register</a>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+
+                                            <a asp-controller="account" asp-action="profile">@User.Identity.Name</a>
+
+                                            <br>
+                                            <span>or</span>
+
+                                            
+                                           
+                                                <a asp-action="LogOut" asp-controller="Account">LogOut</a>
+                                         
+                                        }
+                                        else
+                                        {
+
+                                            <a asp-action="Login" asp-controller="Account" asp-route-ReturnUrl="@Context.Request.Path">Login</a> <br> <span>or</span>
+                                            
+                                            
+                                                <a asp-action="Register" asp-controller="Account">Register</a>
+                                            
+
+                                        }
                                     </div>
                                     <div class="cart-block">
-                                        <div class="cart-total">
-                                            <span class="text-number">
-                                                1
-                                            </span>
-                                            <span class="text-item">
-                                                Shopping Cart
-                                            </span>
-                                            <span class="price">
-                                                £0.00
-                                                <i class="fas fa-chevron-down"></i>
-                                            </span>
-                                        </div>
-                                        <div class="cart-dropdown-block">
-                                            <div class=" single-cart-block ">
-                                                <div class="cart-product">
-                                                    <a href="product-details.html" class="image">
-                                                        <img src="~/assets/image/products/cart-product-1.jpg" alt="">
-                                                    </a>
-                                                    <div class="content">
-                                                        <h3 class="title">
-                                                            <a href="product-details.html">
-                                                                Kodak PIXPRO
-                                                                Astro Zoom AZ421 16 MP
-                                                            </a>
-                                                        </h3>
-                                                        <p class="price"><span class="qty">1 ×</span> £87.34</p>
-                                                        <button class="cross-btn"><i class="fas fa-times"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class=" single-cart-block ">
-                                                <div class="btn-block">
-                                                    <a href="cart.html" class="btn">
-                                                        View Cart <i class="fas fa-chevron-right"></i>
-                                                    </a>
-                                                    <a href="checkout.html" class="btn btn--primary">
-                                                        Check Out <i class="fas fa-chevron-right"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       @await Html.PartialAsync("_BasketPartial",bookItems)
                                     </div>
                                 </div>
                             </div>
@@ -849,11 +850,10 @@
                 </div>
             </div>
         </div>
-        <!--=================================
+     
        @RenderBody()
-        <!--=================================
-        Footer
-        ===================================== -->
+       
+      
         <!-- Modal -->
         <div class="modal fade modal-quick-view" id="quickModal" tabindex="-1" role="dialog"
              aria-labelledby="quickModal" aria-hidden="true">
@@ -1047,7 +1047,7 @@
                     <div class="footer-title">
                         <h3>Newsletter Subscribe</h3>
                     </div>
-                    <div class="newsletter-form mb--30">
+                    <div class="newsletter-form mb--30"> 
                         <form action="https://demo.hasthemes.com/pustok-preview/pustok/php/mail.php">
                             <input type="email" class="form-control" placeholder="Enter Your Email Address Here...">
                             <button class="btn btn--primary w-100">Subscribe</button>

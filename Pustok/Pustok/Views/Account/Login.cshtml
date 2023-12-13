@@ -1,0 +1,46 @@
+﻿@model LoginVM
+<main class="page-section inner-page-sec-padding-bottom">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-6 mb--30 mb-lg--0">
+				<!-- Login Form s-->
+				<form method="Post">
+					<div class="login-form">
+						<h4 class="login-title">Returning Customer</h4>
+						<p><span class="font-weight-bold">I am a returning customer</span></p>
+						<div class="row">
+							
+							<div class="col-md-12 col-12 mb--15">
+								<label asp-for="UsernameOrEmail">Username Or Email</label>
+								<input asp-for="UsernameOrEmail" class="mb-0 form-control" type="text"
+			placeholder="Enter your username or email">
+								<span asp-validation-for="UsernameOrEmail" style="color:red"></span>
+							</div>
+							
+							<div class="col-lg-6 mb--20">
+								<label asp-for="Password">Password</label>
+								<input asp-for="Password" class="mb-0 form-control" type="password" placeholder="Enter your password">
+								<span asp-validation-for="Password" style="color:red"></span>
+							</div>
+							<div class="col-12 d-flex flex-row">
+								<input asp-for="RememberMe" placeholder="Remember Me" />
+								<label asp-for="RememberMe">Remember Me</label>
+
+
+							</div>
+							<div asp-validation-summary="All"></div>
+							<div class="col-md-12">
+								<button class="btn btn-outlined">Login</button>
+								<div class="col-md-12 col-12">
+									<a asp-action="Register" asp-controller="Account">Don't have an account?</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</main>
+
